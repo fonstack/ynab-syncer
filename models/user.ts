@@ -1,20 +1,23 @@
-import mongoose, { InferSchemaType, Schema, models } from "mongoose";
+import mongoose, { InferSchemaType, Schema, models, Model } from "mongoose";
 
 const userSchema = new Schema(
   {
+    _id: {
+      type: String,
+      required: true,
+    },
     email: {
       type: String,
       required: true,
     },
     name: {
       type: String,
-      required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true, _id: false }
 );
 
 export type User = InferSchemaType<typeof userSchema>;
 
-const UserModel = (models ?? []).User || mongoose.model("User", userSchema);
+const UserModel = (models?.User as Model<User>) || mongoose.model<User>("User", userSchema);
 export default UserModel;
