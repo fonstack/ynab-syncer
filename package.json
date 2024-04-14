@@ -10,6 +10,9 @@
     "init": "firebase login && firebase init firestore && firebase init functions"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.2.10",
+    "axios": "^1.6.8",
+    "framer-motion": "^11.0.28",
     "mongoose": "^8.3.1",
     "next": "14.2.0",
     "next-auth": "^5.0.0-beta.16",
@@ -23,6 +26,9 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/uuid": "^9.0.8",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
     "typescript": "^5"
   }
 }

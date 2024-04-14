@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
-import "@/styles/_global.scss";
+import ClientLayout from "./client";
+import "./globals.css";
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -22,7 +23,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${ibmPlexMono.variable} ${ibmPlexSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
     </html>
   );
 }

@@ -1,5 +1,0 @@
-@function getSpacing($token) {
-  $spacing-token: 8;
-
-  @return ($token * $spacing-token) * 1px;
-}
