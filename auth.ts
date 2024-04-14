@@ -2,12 +2,14 @@ import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 import { v4 as uuidv4 } from "uuid";
 import * as UserService from "./services/user.service";
+import { env } from "./config";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [Google],
   callbacks: {
     async signIn(params) {
       const { account, user } = params;
+      if (!env.USERS_WHITELIST.includes(user?.email ?? "")) return false;
 
       if (account?.provider === "google" && user?.email) {
         const userExists = await UserService.getUserByEmail(user.email);
