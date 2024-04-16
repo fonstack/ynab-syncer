@@ -1,9 +1,7 @@
-export default async function Page() {
-  return (
-    <main>
-      <h1 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Dashboard</h1>
+import { AddConnectionButton } from "@/components/AddConnectionButton";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { redirect } from "next/navigation";
 
-      <button>Add new account +</button>
-    </main>
-  );
+export default async function Page() {
+  redirect("/dashboard/home");
 }
